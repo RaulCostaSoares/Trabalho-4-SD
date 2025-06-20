@@ -15,7 +15,7 @@ endmodule
  // 2+4+1+0+4+8+8+4+2 = 33
  // 8 -(2 => "-") (33 mod4) = 8 - 1 = 7
  // x = 7
- // y = 32 - x = 25
+ // y = 31 - x = 24
 
 // Representação de ponto flutuante de 32 bits (IEEE 754):
 // a[31] -> 1      (SINAL)
