@@ -1,4 +1,4 @@
-// Clock de 100 kHz
+// Clock 100kHz
 typedef enum logic[3:0] {
     DECODIFICAR,
     ALINHAR,
@@ -16,7 +16,7 @@ typedef enum logic[3:0] {
 
 module FPU (
     input logic clock,
-    input logic reset, // reset assíncrono (ativo em baixo)
+    input logic reset,
     input logic [31:0] numero_a,
     input logic [31:0] numero_b,
     output logic [31:0] saida,
@@ -30,7 +30,7 @@ logic [9:0] expoente_a, expoente_b, expoente_temp;
 logic [9:0] diferenca_exp;
 logic [4:0] contador;
 
-// Atualiza o estado
+// autaliza o estado
 always_ff @(posedge clock or negedge reset) begin
     if (!reset) begin
         estado_atual <= DECODIFICAR;
@@ -39,7 +39,7 @@ always_ff @(posedge clock or negedge reset) begin
     end
 end
 
-// Decide próximo estado
+// próximo estado
 always_comb begin
     proximo_estado = estado_atual;
     if (estado_atual == DECODIFICAR && pronto_decod) proximo_estado = ALINHAR;
@@ -49,7 +49,7 @@ always_comb begin
     else if (estado_atual == ESCREVER && pronto_escrever) proximo_estado = DECODIFICAR;
 end
 
-// Compara os números
+// comparação
 always_comb begin
     if (numero_a[30:21] >= numero_b[30:21]) begin
         maior = 1;
@@ -58,7 +58,6 @@ always_comb begin
     end
 end
 
-// Processa tudo
 always_ff @(posedge clock or negedge reset) begin
     if (!reset) begin
         saida <= 32'd0;
