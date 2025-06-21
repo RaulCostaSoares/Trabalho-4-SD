@@ -22,14 +22,14 @@ module FPU(
 // a[23:0] -> 24   (MANTISSA)
 
 
-// typedef enum logic [2:0] {   // Resutado do FPU
+// typedef enum logic [1:0] {   // Resutado do FPU
 //     EXACT, // O resultado foi representado corretamente pela configuração de ponto flutuante e não foi utilizado arredondamento
 //     OVERFLOW,
 //     UNDERFLOW, 
 //     INEXACT // O resultado sofreu arredondamento
 // } state_t;
 
-    typedef enum logic [2:0] {   // Resutado do FPU
+    typedef enum logic [1:0] {   // Resutado do FPU
         EXPO,
         ADD_SUB,
         ARRED,
@@ -55,11 +55,48 @@ module FPU(
 
     always_ff @(posedge clk or negedge reset) begin
         if (!reset) begin
+            current_state     <= MOD_EXPO;
+            bit_inexact       <= 1'b0;
+            bit_overflow      <= 1'b0;
+            bit_underflow     <= 1'b0;
+            sinal_result      <= 1'b0;
+            status_out        <= 4'b0;
+            exp_dif           <= 7'b0;
+            exp_result        <= 7'b0;
+            mant_result       <= 25'b0;
+            mantA_shifted     <= 26'b0;
+            mantB_shifted     <= 26'b0;
+            mant_result_temp  <= 27'b0;
+            data_out          <= 32'b0;
+
         end else begin
             case (estado)
                 EXPO:
                     begin
+                        if (a == 32'd0 && b == 32'd0) begin // se os dois forem zero, ja retorna zero
+                            data_out <= 32'd0;
+                            estado <= READY;
+                        end else if (expA == 7'd0 && expB == 7'd0) begin // se ambos forem zero, retorna zero
+                            data_out <= 32'd0;
+                            estado <= READY;
+                        end else begin
+                            // Calcula a diferença dos expoentes
+                            if (expA > expB) begin
+                                exp_dif <= expA - expB;
+                                mantB_shifted <= {mantB, 1'b0} >> exp_dif; // Desloca mantissa B para a direita
+                                mantA_shifted <= {mantA, 1'b0}; // Mantissa A não é deslocada
+                            end else if (expB > expA) begin
+                                exp_dif <= expB - expA;
+                                mantA_shifted <= {mantA, 1'b0} >> exp_dif; // Desloca mantissa A para a direita
+                                mantB_shifted <= {mantB, 1'b0}; // Mantissa B não é deslocada
+                            end else begin
+                                exp_dif <= 7'b0; // Expoentes iguais, não há deslocamento necessário
+                                mantA_shifted <= {mantA, 1'b0};
+                                mantB_shifted <= {mantB, 1'b0};
+                            end
 
+                            estado <= ADD_SUB; // Próximo estado para realizar a operação de adição/subtração
+                        end
                     end
         
                 ADD_SUB:
