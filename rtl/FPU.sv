@@ -47,11 +47,11 @@ module fpu(
 
     assign sinalA = a[31]; 
     assign expA   = a[30:24];                                   // 7 bits para o expoente
-    assign mantA  = a[23:0];
+    assign mantA  = (expA == 7'b0) ? {1'b0, a[23:0]} : {1'b1, a[23:0]};
 
     assign sinalB = b[31]; 
     assign expB   = b[30:24];                                   // 7 bits para o expoente
-    assign mantB  = b[23:0];
+    assign mantB  = (expB == 7'b0) ? {1'b0, b[23:0]} : {1'b1, b[23:0]};
 
     always_ff @(posedge clk or negedge reset) begin
         if (!reset) begin
