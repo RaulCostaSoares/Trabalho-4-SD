@@ -2,7 +2,7 @@
 
 Uma FPU (Unidade de Ponto Flutuante) é um componente de hardware responsável por realizar operações matemáticas com números em ponto flutuante, como adição, subtração, multiplicação e divisão. Ela é otimizada para lidar com a representação e o cálculo de números reais (com casas decimais), seguindo padrões como o IEEE 754. Isso permite maior precisão e desempenho em cálculos científicos, gráficos e aplicações que exigem manipulação de valores não inteiros.
 
-### Configuração do Expoente e Mantissa
+### Expoente e Mantissa
 
 Nesta FPU, o formato de 32 bits é definido por:
 
