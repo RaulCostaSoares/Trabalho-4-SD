@@ -15,7 +15,7 @@ Os valores de \(X\) e \(Y\) são calculados a partir da matrícula do autor, que
 - \(X = 8 - (\sum d \mod 4)\), onde \(\sum d\) é a soma dos dígitos da matrícula  
 - \(Y = 31 - X\)
 
-No caso da matrícula usada, isso gera **\(X = 7\)** bits para o expoente e **\(Y = 24\)** bits para a mantissa. O dígito verificador indica o sinal do expoente. Essa configuração customizada difere do padrão IEEE 754 e é usada para atender aos requisitos do trabalho.
+No caso da matricula 24104884-2, temos  **\(X = 7\)** bits para o expoente e **\(Y = 24\)** bits para a mantissa.
 
 ---
 ## 📌 Objetivo do Projeto
