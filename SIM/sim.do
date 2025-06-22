@@ -5,7 +5,7 @@ vmap work work
 vlog -work work ../rtl/fpu.sv
 
 vlog -work work tb_fpu.sv
-vsim -voptargs=+acc work.tb
+vsim -voptargs=+acc work.tb_fpu
 
 quietly set StdArithNoWarnings 1
 quietly set StdVitalGlitchNoWarnings 1
