@@ -46,3 +46,15 @@ A FPU foi desenvolvida como parte de um trabalho acadêmico, com foco em compree
 ## Execução
 
 #### Imagens da execução da calculadora
+![Captura de tela 2025-06-22 001915](https://github.com/user-attachments/assets/55f84c69-d41c-4b39-b343-5c38484a1248)
+![Captura de tela 2025-06-22 001954](https://github.com/user-attachments/assets/7852a5c6-df01-46e1-be66-bc2326b116f6)
+
+
+## Como testar:
+- `module load questa`
+- `vsim`
+- Dentro do terminal do questa:
+- `(Diretório que tu baixou/clonou esse repositório)/Trabalho-4-SD/SIM`
+- `do sim.do`
+
+
