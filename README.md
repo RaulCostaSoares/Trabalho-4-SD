@@ -20,7 +20,7 @@ No caso da matricula 24104884-2, temos  **\(X = 7\)** bits para o expoente e **\
 ---
 ## 📌 Objetivo do Projeto
 
-Este projeto implementa uma **FPU (Floating Point Unit)** simplificada utilizando a linguagem **Verilog**, com o propósito de realizar **operações de soma e subtração em ponto flutuante**, usando uma representação **customizada de 32 bits** inspirada no padrão **IEEE 754**, porém com alterações específicas:
+Este projeto implementa uma **FPU (Floating Point Unit)** simplificada utilizando a linguagem **Verilog**, com o propósito de realizar **operações de soma e subtração em ponto flutuante**, porém com algumas alterações feitas pela proposta do trabalho:
 
 - **1 bit para o sinal** (bit 31)
 - **7 bits para o expoente**
@@ -33,8 +33,8 @@ A FPU foi desenvolvida como parte de um trabalho acadêmico, com foco em compree
 
 ## 🔧 Estados
 
-- Operação de **adição e subtração** entre dois operandos de 32 bits
-- Controle interno de **overflow**, **underflow** e **arredondamento**
+- Operação de `adição` e `subtração` entre dois operandos de 32 bits
+- Controle interno de `overflow`, `underflow` e `arredondamento`
 - Máquina de estados finita com os estados:
   - `EXPO`: Alinhamento de expoentes
   - `ADD_SUB`: Operação aritmética (soma/subtração)

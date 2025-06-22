@@ -45,69 +45,59 @@ module tb_fpu();
         #(CLK_PERIOD * 2) reset = 1;
 
         // Casos de teste
+
         a = 32'b0; 
         b = 32'b0;
-        op = 2'b00;
         #1000;
         $display("\nTeste 1: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd31, 25'd0};
-        b = {1'b0, 6'd31, 25'd0};
-        op = 2'b00;
+        a = {1'b0, 7'd31, 24'd0};
+        b = {1'b0, 7'd31, 24'd0};
         #1000;
         $display("\nTeste 2: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd31, 25'd0};
-        b = {1'b1, 6'd31, 25'd0};
-        op = 2'b00;
+        a = {1'b0, 7'd31, 24'd0};
+        b = {1'b1, 7'd31, 24'd0};
         #1000;
         $display("\nTeste 3: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd50, 25'd100};
-        b = {1'b0, 6'd10, 25'd100};
-        op = 2'b00;
+        a = {1'b0, 7'd60, 24'd64};
+        b = {1'b0, 7'd5, 24'd64};
         #1000;
         $display("\nTeste 4: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd31, 25'd5000000};
-        b = {1'b0, 6'd31, 25'd1000000};
-        op = 2'b00;
+        a = {1'b0, 7'd45, 24'd9000000};
+        b = {1'b0, 7'd45, 24'd3000000};
         #1000;
         $display("\nTeste 5: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd31, 25'b0111111111111111111111111};
-        b = {1'b0, 6'd31, 25'b0000000000000000000000001};
-        op = 2'b00;
+        a = {1'b0, 7'd20, 24'h7FFFFF};
+        b = {1'b0, 7'd20, 24'h000001};
         #1000;
         $display("\nTeste 6: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd63, 25'b1111111111111111111111111};
-        b = {1'b0, 6'd63, 25'b1111111111111111111111111};
-        op = 2'b00;
+        a = {1'b0, 7'd127, 24'h7FFFFF};
+        b = {1'b0, 7'd127, 24'h7FFFFF};
         #1000;
         $display("\nTeste 7: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd1, 25'd1};
-        b = {1'b1, 6'd1, 25'd0};
-        op = 2'b00;
+        a = {1'b0, 7'd1, 24'd1};
+        b = {1'b1, 7'd1, 24'd0};
         #1000;
         $display("\nTeste 8: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b1, 6'd32, 25'd0};
-        b = {1'b1, 6'd32, 25'd0};
-        op = 2'b00;
+        a = {1'b1, 7'd40, 24'd12345};
+        b = {1'b1, 7'd40, 24'd12345};
         #1000;
         $display("\nTeste 9: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd33, 25'd0};
-        b = {1'b1, 6'd32, 25'd0};
-        op = 2'b00;
+        a = {1'b0, 7'd60, 24'd1000};
+        b = {1'b1, 7'd59, 24'd1000};
         #1000;
         $display("\nTeste 10: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
-        a = {1'b0, 6'd63, 25'b1111111111111111111111111};
-        b = {1'b1, 6'd63, 25'b1111111111111111111111111};
-        op = 2'b00;
+        a = {1'b0, 7'd100, 24'hFFFFFF};
+        b = {1'b1, 7'd100, 24'hFFFFFF};
         #1000;
         $display("\nTeste 11: A = %h, B = %h, Output = %h, Status = %b", a, b, data_out, status_out);
 
