@@ -4,8 +4,8 @@ module fpu(
 
     input logic [31:0] a,
     input logic [31:0] b,
-    input logic [1:0] op,  // Atualmente não usado para operações específicas (pode ser expandido)
-
+    input logic [1:0] op,
+    
     output logic [31:0] data_out,
     output logic [3:0] status_out
 );
