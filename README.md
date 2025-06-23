@@ -7,15 +7,17 @@ Uma FPU (Unidade de Ponto Flutuante) é um componente de hardware responsável p
 Nesta FPU, o formato de 32 bits é definido por:
 
 - 1 bit de sinal  
-- \(X\) bits para o expoente  
-- \(Y\) bits para a mantissa  
+- **X** bits para o expoente  
+- **Y** bits para a mantissa  
 
-Os valores de \(X\) e \(Y\) são calculados a partir da matrícula do autor, que determina:
+Os valores de **X** e **Y** são calculados a partir da matrícula do autor, que determina:
 
-- \(X = 8 - (\sum d \mod 4)\), onde \(\sum d\) é a soma dos dígitos da matrícula  
-- \(Y = 31 - X\)
+- `X = 8 - (soma_dígitos % 4)`, onde `soma_dígitos` é a soma dos dígitos da matrícula  
+- `Y = 31 - X`
 
-No caso da matricula 24104884-2, temos  **\(X = 7\)** bits para o expoente e **\(Y = 24\)** bits para a mantissa.
+No caso da matrícula `24104884-2`, temos:  
+- **X = 7** bits para o expoente  
+- **Y = 24** bits para a mantissa
 
 ---
 ## Objetivo
