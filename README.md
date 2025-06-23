@@ -18,7 +18,7 @@ Os valores de \(X\) e \(Y\) são calculados a partir da matrícula do autor, que
 No caso da matricula 24104884-2, temos  **\(X = 7\)** bits para o expoente e **\(Y = 24\)** bits para a mantissa.
 
 ---
-## 📌 Objetivo do Projeto
+## Objetivo
 
 Este projeto implementa uma **FPU (Floating Point Unit)** simplificada utilizando a linguagem **Verilog**, com o propósito de realizar **operações de soma e subtração em ponto flutuante**, porém com algumas alterações feitas pela proposta do trabalho:
 
@@ -31,7 +31,7 @@ A FPU foi desenvolvida como parte de um trabalho acadêmico, com foco em compree
 ---
 
 
-## 🔧 Estados
+## Máquina de estados
 
 - Operação de `adição` e `subtração` entre dois operandos de 32 bits
 - Controle interno de `overflow`, `underflow` e `arredondamento`
