@@ -2,10 +2,9 @@
 
 module tb_fpu();
 
-    // Parâmetros
     parameter CLK_PERIOD = 10;
 
-    // Entradas
+    // entradas
     logic clk;
     logic reset;
     logic [31:0] a;
@@ -16,7 +15,7 @@ module tb_fpu();
     logic [31:0] data_out;
     logic [3:0] status_out;
 
-    // Instancia o módulo FPU
+    // módulo fpu
     fpu mod (
         .clk(clk),
         .reset(reset),
@@ -27,15 +26,14 @@ module tb_fpu();
         .status_out(status_out)
     );
 
-    // Geração do clock
+    // clock
     initial begin
         clk = 0;
         forever #(CLK_PERIOD / 2) clk = ~clk;
     end
 
-    // Sequência de teste
+    // initial
     initial begin
-        // Inicializa entradas
         reset = 1;
         a = 32'd0;
         b = 32'd0;
@@ -44,8 +42,7 @@ module tb_fpu();
         #(CLK_PERIOD * 2) reset = 0;
         #(CLK_PERIOD * 2) reset = 1;
 
-        // Casos de teste
-
+        // testes
         a = 32'b0; 
         b = 32'b0;
         #1000;
